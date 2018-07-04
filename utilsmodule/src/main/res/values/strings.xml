@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">UtilsModule</string>
+    <string name="zaicidianjijinagtuichugaiyemian">再次点击将推出该页面!</string>
+    <string name="wangluobutaigeiliyou">网络不太给力哟!</string>
+    <string name="wenjianbaocunchenggong">文件保存成功!</string>
+    <string name="wenjianbaocunshibai">文件保存失败!</string>
+    <string name="prompt">提示</string>
+    <string name="affirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="shanchulianxirenshibai">删除联系人失败!</string>
+    <string name="tianjialianxirenshibai">添加联系人失败!</string>
+</resources>

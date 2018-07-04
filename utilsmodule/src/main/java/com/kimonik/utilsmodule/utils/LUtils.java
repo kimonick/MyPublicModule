@@ -2,6 +2,8 @@ package com.kimonik.utilsmodule.utils;
 
 import android.util.Log;
 
+import com.kimonik.utilsmodule.adapter.listview.MultiItemTypeAdapter;
+
 /**
  * * ==================================================
  * name:            LUtils
@@ -31,5 +33,15 @@ public class LUtils {
         if (DEBUG) {
             Log.e("------" + clz.getSimpleName(), Thread.currentThread().getStackTrace()[3].getMethodName() + "------" + str);
         }
+    }
+    /**从应用程序开始启动,到调用该方法的方法调用顺序栈,调用逆序*/
+    public static void getMethodTrace(Class clz){
+        StackTraceElement[] element=Thread.currentThread().getStackTrace();
+        for (int i = 0; i < element.length; i++) {
+            Log.e("方法逆序追踪","---"+i+"---"+
+                    element[i].getClassName()+"---"+element[i].getMethodName()
+            );
+        }
+
     }
 }

@@ -64,10 +64,10 @@ dependencies {
 //    数据库操作库
     compile 'org.litepal.android:core:1.6.1'
 
-    //万能适配器  listview
-    compile 'com.zhy:base-adapter:3.0.3'
+    //万能适配器  listview,见copy代码adapter包中
+//    compile 'com.zhy:base-adapter:3.0.3'
     //万能适配器  recylerview
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
 
     //日志格式化输出库,com.orhanobut.logger.Logger包名
 //    implementation 'com.orhanobut:logger:2.2.0'

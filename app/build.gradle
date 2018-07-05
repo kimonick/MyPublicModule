@@ -39,6 +39,11 @@ android {
         doNotStrip '*/mips/*.so'
         doNotStrip '*/mips64/*.so'
     }
+    externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }
 }
 
 //此处依赖可能有问题----------解决support包依赖有多个版本的警告问题------------------------------------------------------

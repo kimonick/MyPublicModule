@@ -151,10 +151,17 @@ public class HomeActivity extends BaseActivity {
         return 0;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+    /**
+     * 2018！尚硅谷全套视频200G，免费下载，自学一样拿1万+月薪！
+     尚硅谷Vue、SpringBoot、SpringCloud倾心之课！
+     【Java基础,Java9,JavaWeb】www.atguigu.com/download.shtml
+     【Linux,Oracle,JDBC,MySQL高级】http://url.cn/4ERsXa0
+     【HTML5,CSS3,JS,JQuery,AJAX】http://url.cn/4EHmHKZ
+     【SSH,SSM,SpringMVC,SpringBoot】http://url.cn/4Ej6ePw
+     【Redis,Shiro,MyBatis】http://url.cn/4EU3FCV
+     【Android核心,影音,商城项目】http://url.cn/4ENsQjH
+     【Node,mongoDB,Angular,React】http://url.cn/5ndEJKm
+     自学一样拿1万+月薪，技术群：715446567
+
+     */
 }

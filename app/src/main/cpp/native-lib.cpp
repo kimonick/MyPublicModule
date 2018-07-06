@@ -20,12 +20,12 @@ Java_com_kimonik_mypublicmodule_HomeActivity_stringFromJNI(JNIEnv *env, jobject 
     string s = "mmmmm";
     string h = to_string(30);
     Hello hello1;
-    string a = hello1.add("10", "9");
+    string a = hello1.add("  tudou", "肌肤");
     hello = hello + s + h + a;
     char* c=new char[strlen(hello.c_str())+1];
 //     char* c;
-//    strcpy(c, hello.c_str());
+    strcpy(c, hello.c_str());
     LOGE("[%s] decode %s jpeg images, spend time: %d ms\n", c, c, 200/1000);
-    __android_log_print(ANDROID_LOG_ERROR,"我的c++",c);
+//    __android_log_print(ANDROID_LOG_ERROR,"我的c++",c);
     return env->NewStringUTF(hello.c_str());
 }

@@ -105,7 +105,16 @@ public class HttpUtils {
                 .execute(callback);
     }
 
-
+    /**
+     * post请求
+     */
+    public void commonPOST(String url, TreeMap<String, String> paramsMap,
+                     Callback<String> callback) {
+        OkGo.<String>post(url)     // 请求方式和请求url
+                .tag("post")                       // 请求的 tag, 主要用于取消对应的请求
+                .params(paramsMap)//参数加密--与后台服务器相关
+                .execute(callback);
+    }
     /**
      * @param url       链接URL
      * @param paramsMap 参数map

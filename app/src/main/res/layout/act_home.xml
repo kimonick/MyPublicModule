@@ -1,39 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#a33"
     tools:context="com.kimonik.mypublicmodule.HomeActivity">
-    <com.kimonik.mypublicmodule.opengles2test.MyGLSurfaceView
-        android:id="@+id/gl_act_home"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:gravity="center">-->
-        <!--<VideoView-->
-            <!--android:id="@+id/videoview_act_home"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#a3a3"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--/>-->
-    <!--</RelativeLayout>-->
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt_home_001"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/opengltest" />
+
+        <Button
+            android:id="@+id/bt_home_002"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/okgotest" />
+
+        <Button
+            android:id="@+id/bt_home_003"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/commonadapterttest" />
+
+        <Button
+            android:id="@+id/bt_home_004"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/videoviewtest" />
+    </LinearLayout>
 
 
-    <!--<ListView-->
-        <!--android:id="@+id/listView_act_home"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:visibility="gone">-->
-
-    <!--</ListView>-->
-
-</LinearLayout>
+</ScrollView>

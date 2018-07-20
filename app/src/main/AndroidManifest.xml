@@ -7,6 +7,7 @@
     <supports-gl-texture android:name="GL_OES_compressed_paletted_texture" />
 
     <application
+        android:name=".app.MApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--OkGoTest  Activity-->
+        <activity android:name=".activity.OkGoTestActivity" />
+        OpenGLESTestActivityTest  Activity-->
+        <activity android:name=".activity.OpenGLESTestActivity" />
+        <activity android:name=".activity.CommonAdapterTestActivity" />
+        <activity android:name=".activity.VideoViewTestActivity" />
     </application>
 
 </manifest>

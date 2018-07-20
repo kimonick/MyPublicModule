@@ -504,6 +504,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseMeth
     public void showToast(@StringRes int strRes){
         ToastUtils.showToast(BaseActivity.this, strRes);
     }
+    /**显示提示信息*/
+    public void showToast(String strRes){
+        ToastUtils.showToast(BaseActivity.this, strRes);
+    }
 
 
 //    /**

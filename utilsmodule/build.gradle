@@ -24,51 +24,36 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-
-
     //butterknife依赖
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
     //Glide依赖--图片加载库
     compile 'com.github.bumptech.glide:glide:4.6.1'
-
     //glide扩展
     compile 'jp.wasabeef:glide-transformations:2.0.2'
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-
-
     //json数据解析库
     compile 'com.google.code.gson:gson:2.8.2'
-
-
     //okgo依赖--网络连接库
-    compile 'com.lzy.net:okgo:3.0.4'
-    compile 'com.lzy.net:okserver:2.0.5'
-//    compile 'com.squareup.okhttp3:okhttp:3.8.1'
-//    compile 'com.squareup.okio:okio:1.13.0'
+    //    compile 'com.lzy.net:okgo:3.0.4'
+    //    compile 'com.lzy.net:okserver:2.0.5'
+    //    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    //    compile 'com.squareup.okio:okio:1.13.0'
     compile 'com.squareup.okhttp3:okhttp:3.10.0'
     compile 'com.squareup.okio:okio:1.14.0'
-
-
     //沉浸式状态栏
     compile 'com.readystatesoftware.chuck:library:1.0.4'
     compile 'com.lzy.widget:imagepicker:0.5.5'
-
-
     //上拉加载下拉刷新
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-1'
-//    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-1'
-
-//    数据库操作库
+    //    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-1'
+    //    数据库操作库
     compile 'org.litepal.android:core:1.6.1'
-
     //万能适配器  listview,见copy代码adapter包中
-//    compile 'com.zhy:base-adapter:3.0.3'
+    //    compile 'com.zhy:base-adapter:3.0.3'
     //万能适配器  recylerview
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.40'
-
     //日志格式化输出库,com.orhanobut.logger.Logger包名
-//    implementation 'com.orhanobut:logger:2.2.0'
+    //    implementation 'com.orhanobut:logger:2.2.0'
+    implementation project(':okgo')
 }

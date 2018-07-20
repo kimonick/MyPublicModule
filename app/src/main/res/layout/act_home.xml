@@ -7,21 +7,25 @@
     android:orientation="vertical"
     android:background="#a33"
     tools:context="com.kimonik.mypublicmodule.HomeActivity">
-    <RelativeLayout
+    <com.kimonik.mypublicmodule.opengles2test.MyGLSurfaceView
+        android:id="@+id/gl_act_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <VideoView
-            android:id="@+id/videoview_act_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#a3a3"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            />
-    </RelativeLayout>
+        android:layout_height="match_parent" />
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:gravity="center">-->
+        <!--<VideoView-->
+            <!--android:id="@+id/videoview_act_home"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#a3a3"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--/>-->
+    <!--</RelativeLayout>-->
 
 
     <!--<ListView-->

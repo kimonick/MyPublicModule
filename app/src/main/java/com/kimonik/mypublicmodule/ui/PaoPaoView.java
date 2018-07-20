@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RadialGradient;
@@ -102,7 +103,15 @@ public class PaoPaoView extends View {
         listOffset=new ArrayList<>();
         set=new HashSet<>();
         initRefresh();
+        //线性渐变着色器相关讲解--https://juejin.im/post/596baf5f6fb9a06bb15a3df9
+        //tile：端点范围之外的着色规则，类型是 TileMode。TileMode 一共有 3 个值可选：
+        // CLAMP, MIRROR 和 REPEAT。CLAMP （夹子模式？？？算了这个词我不会翻）
+        // 会在端点之外延续端点处的颜色；MIRROR 是镜像模式；REPEAT 是重复模式。
 
+        Shader shader = new LinearGradient(100, 100, 500, 500, Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"), Shader.TileMode.REPEAT);
+
+        //辐射渐变
         radialGradient=new RadialGradient(540, 960, 960, new int[] {
                 Color.parseColor("#368DEA"),
                 Color.parseColor("#4887E5"),

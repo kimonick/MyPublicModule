@@ -11,6 +11,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -207,6 +208,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseMeth
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         initSystemBarTint();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//强制竖屏显示
@@ -230,7 +232,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseMeth
         initView();
         initListener();
         initDataFromInternet();
-
     }
 
     /**

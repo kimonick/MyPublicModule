@@ -1,6 +1,7 @@
 package com.kimonik.mypublicmodule;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -47,8 +48,11 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initDataFromIntent() {
+    ceshi("这是原来的字符串网贷之家");
 
-
+    }
+    public void ceshi(String s){
+        Log.e("TAG", "method2: "+s);
     }
 
 
@@ -79,11 +83,13 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        Log.e("TAG", "class切点插入:onCreate开始" );
         PaoPaoView paoPaoView=new PaoPaoView(this);
         FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         paoPaoView.setLayoutParams(params);
         ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
+        Log.e("TAG", "class切点插入:onCreate结束" );
 
     }
 

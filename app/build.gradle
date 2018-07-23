@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//aspectj必须配置
+apply plugin: 'android-aspectjx'
 android {
     compileSdkVersion 27
     buildToolsVersion "26.0.2"
@@ -29,7 +31,6 @@ android {
         androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    引用此处就报错
         api project(':utilsmodule')
-
         //butterknife依赖
         compile 'com.jakewharton:butterknife:8.8.1'
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'

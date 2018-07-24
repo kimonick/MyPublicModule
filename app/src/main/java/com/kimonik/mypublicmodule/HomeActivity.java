@@ -1,6 +1,5 @@
 package com.kimonik.mypublicmodule;
 
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +11,11 @@ import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
 import com.kimonik.mypublicmodule.ui.PaoPaoView;
+import com.kimonik.mypublicmodule.ui.WaveView;
 import com.kimonik.utilsmodule.base.BaseActivity;
 import com.lzy.okgo.model.Response;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class HomeActivity extends BaseActivity {
 
@@ -48,11 +47,12 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initDataFromIntent() {
-    ceshi("这是原来的字符串网贷之家");
+        ceshi("这是原来的字符串网贷之家");
 
     }
-    public void ceshi(String s){
-        Log.e("TAG", "method2: "+s);
+
+    public void ceshi(String s) {
+        Log.e("TAG", "method2: " + s);
     }
 
 
@@ -83,13 +83,18 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        Log.e("TAG", "class切点插入:onCreate开始" );
+//        Log.e("TAG", "class切点插入:onCreate开始" );
         PaoPaoView paoPaoView=new PaoPaoView(this);
         FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
         paoPaoView.setLayoutParams(params);
         ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
-        Log.e("TAG", "class切点插入:onCreate结束" );
+//        Log.e("TAG", "class切点插入:onCreate结束" );
+        WaveView waveView=new WaveView(this);
+//        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+//                ViewGroup.LayoutParams.MATCH_PARENT);
+        waveView.setLayoutParams(params);
+        ((FrameLayout) (getWindow().getDecorView())).addView(waveView);
 
     }
 
@@ -121,12 +126,6 @@ public class HomeActivity extends BaseActivity {
         return 0;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 
     /**
      * 2018！尚硅谷全套视频200G，免费下载，自学一样拿1万+月薪！

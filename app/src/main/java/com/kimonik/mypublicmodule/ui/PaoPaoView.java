@@ -22,6 +22,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * * ===============================================================
@@ -76,6 +78,7 @@ public class PaoPaoView extends View {
     private double min=Math.PI/6;
     private double max=2*Math.PI/3;
     private RadialGradient radialGradient;
+    private Executor executor;
 
 
     public PaoPaoView(Context context) {
@@ -98,11 +101,12 @@ public class PaoPaoView extends View {
     }
 
     private void init() {
+        executor= Executors.newFixedThreadPool(1);
         paint = initPaint("#21AC3A", 5, Paint.Style.FILL);
         list=new ArrayList<>();
         listOffset=new ArrayList<>();
         set=new HashSet<>();
-        initRefresh();
+//        initRefresh();
         //线性渐变着色器相关讲解--https://juejin.im/post/596baf5f6fb9a06bb15a3df9
         //tile：端点范围之外的着色规则，类型是 TileMode。TileMode 一共有 3 个值可选：
         // CLAMP, MIRROR 和 REPEAT。CLAMP （夹子模式？？？算了这个词我不会翻）
@@ -135,58 +139,54 @@ public class PaoPaoView extends View {
     }
 
     private void initRefresh() {
-        new Thread() {
-            @Override
-            public void run() {
-                while (toggle) {
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    for (int i = 0; i < list.size(); i++) {
-                        if (set.contains(i)) continue;
-                        if (list.get(i).x<left||list.get(i).x>right||list.get(i).y<top){
-                            set.add(i);
-                        }
-                    }
+       executor.execute(new Runnable() {
+           @Override
+           public void run() {
+               while (toggle) {
+                   try {
+                       Thread.sleep(50);
+                   } catch (InterruptedException e) {
+                       e.printStackTrace();
+                   }
+                   for (int i = 0; i < list.size(); i++) {
+                       if (set.contains(i)) continue;
+                       if (list.get(i).x<left||list.get(i).x>right||list.get(i).y<top){
+                           set.add(i);
+                       }
+                   }
 
-                    if (count*50%interval==0){
-                        if (set.isEmpty()){
-                            PointF pointF=new PointF(width/2,height);
+                   if (count*50%interval==0){
+                       if (set.isEmpty()){
+                           PointF pointF=new PointF(width/2,height);
 //                            double  degree=Math.PI*Math.random();
-                            double  degree=min+max*Math.random();
-                            PointF pointFOffset=new PointF((float) (offset*Math.cos(degree)),(float) Math.abs(offset*Math.sin(degree)));
-                            list.add(pointF);
-                            listOffset.add(pointFOffset);
-                        }else{//复用已经超出边界的数据
-                            Iterator<Integer> iterator=set.iterator();
-                            int temp;
-                            if (iterator.hasNext()){
-                                temp=iterator.next();
-                                list.get(temp).x=width/2;
-                                list.get(temp).y=height;
-                                double  degree=min+max*Math.random();
-                                listOffset.get(temp).x=(float) (offset*Math.cos(degree));
-                                listOffset.get(temp).y=(float) Math.abs(offset*Math.sin(degree));
-                                set.remove(temp);
-                            }
-                        }
+                           double  degree=min+max*Math.random();
+                           PointF pointFOffset=new PointF((float) (offset*Math.cos(degree)),(float) Math.abs(offset*Math.sin(degree)));
+                           list.add(pointF);
+                           listOffset.add(pointFOffset);
+                       }else{//复用已经超出边界的数据
+                           Iterator<Integer> iterator=set.iterator();
+                           int temp;
+                           if (iterator.hasNext()){
+                               temp=iterator.next();
+                               list.get(temp).x=width/2;
+                               list.get(temp).y=height;
+                               double  degree=min+max*Math.random();
+                               listOffset.get(temp).x=(float) (offset*Math.cos(degree));
+                               listOffset.get(temp).y=(float) Math.abs(offset*Math.sin(degree));
+                               set.remove(temp);
+                           }
+                       }
 
-                    }
-                    for (int i = 0; i < list.size(); i++) {
-                        list.get(i).x+=listOffset.get(i).x;
-                        list.get(i).y-=listOffset.get(i).y;
-                    }
-//                    curX += pointF.x;
-//                    curY -= pointF.y;
-                    count++;
-                    LUtils.e(PaoPaoView.class,"logflag-集合的大小--"+list.size());
-
-                    postInvalidate();
-                }
-            }
-        }.start();
+                   }
+                   for (int i = 0; i < list.size(); i++) {
+                       list.get(i).x+=listOffset.get(i).x;
+                       list.get(i).y-=listOffset.get(i).y;
+                   }
+                   count++;
+                   postInvalidate();
+               }
+           }
+       });
     }
 
     private Paint initPaint(String color, float strokeWidth, Paint.Style style) {
@@ -200,8 +200,6 @@ public class PaoPaoView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
-//        canvas.drawCircle(540, 960, 960, paint);
 
         for (int i = 0; i < list.size(); i++) {
             if (set.contains(i))  continue;
@@ -217,7 +215,17 @@ public class PaoPaoView extends View {
         right=width+50;
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
-
+    //根据View是否显示来开启关闭值动画
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
+        if (visibility==View.VISIBLE){
+            toggle=true;
+            initRefresh();
+        }else {
+            toggle=false;
+        }
+    }
     @Override
     protected void onDetachedFromWindow() {
         toggle=false;

@@ -1,6 +1,10 @@
 package com.kimonik.mypublicmodule.aspectj;
 
 import android.util.Log;
+import android.view.View;
+
+import com.kimonik.utilsmodule.mvp.Contract;
+import com.kimonik.utilsmodule.utils.LUtils;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -84,7 +88,6 @@ public class AspectJTest {
      */
     @Around("execution(* *..HomeActivity.ceshi(..))")
     public void method2(ProceedingJoinPoint joinPoint) throws Throwable {
-        Log.e("TAG", "method2: 拦截系统方法前");
         Object[] objects = joinPoint.getArgs();
         for (int i = 0; i < objects.length; i++) {
             //执行方法时传入的参数列表
@@ -93,6 +96,15 @@ public class AspectJTest {
         //传入新的参数替代原来的参数
         joinPoint.proceed(new Object[]{"这是修改后的参数土豆金服"});
         Log.e("TAG", "method2: 拦截系统方法后");
+
+    }
+
+    @Around("execution(* android.app.Activity.onCreate(..))")
+    public void method3(ProceedingJoinPoint joinPoint) throws Throwable {
+        joinPoint.proceed();
+        LUtils.getMethodTrace(getClass());
+
+        LUtils.e(AspectJTest.class,"logflag---dispatchTouchEvent方法一致性");
 
     }
 

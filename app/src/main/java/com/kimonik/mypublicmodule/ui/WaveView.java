@@ -128,6 +128,7 @@ public class WaveView extends View {
         path.lineTo(1080, 1920);
         path.lineTo(0, 1920);
         path.close();
+
     }
 
     private  void initThread() {
@@ -178,7 +179,7 @@ public class WaveView extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    //根据View是否显示来开启关闭值动画
+    //根据View是否显示来开启关闭动画
     @Override
     protected void onWindowVisibilityChanged(int visibility) {
         super.onWindowVisibilityChanged(visibility);
@@ -195,4 +196,7 @@ public class WaveView extends View {
         isRun=false;
         super.onDetachedFromWindow();
     }
+    /**
+     * 1.
+     */
 }

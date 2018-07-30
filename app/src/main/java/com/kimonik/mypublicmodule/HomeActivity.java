@@ -10,6 +10,7 @@ import com.kimonik.mypublicmodule.activity.CommonAdapterTestActivity;
 import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
+import com.kimonik.mypublicmodule.ui.LoadingView;
 import com.kimonik.mypublicmodule.ui.PaoPaoView;
 import com.kimonik.mypublicmodule.ui.WaveView;
 import com.kimonik.utilsmodule.base.BaseActivity;
@@ -84,17 +85,19 @@ public class HomeActivity extends BaseActivity {
     @Override
     public void initView() {
 //        Log.e("TAG", "class切点插入:onCreate开始" );
-        PaoPaoView paoPaoView=new PaoPaoView(this);
+//        PaoPaoView paoPaoView=new PaoPaoView(this);
         FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-        paoPaoView.setLayoutParams(params);
-        ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
-//        Log.e("TAG", "class切点插入:onCreate结束" );
-        WaveView waveView=new WaveView(this);
-//        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.MATCH_PARENT);
-        waveView.setLayoutParams(params);
-        ((FrameLayout) (getWindow().getDecorView())).addView(waveView);
+//        paoPaoView.setLayoutParams(params);
+//        ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
+////        Log.e("TAG", "class切点插入:onCreate结束" );
+//        WaveView waveView=new WaveView(this);
+////        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+////                ViewGroup.LayoutParams.MATCH_PARENT);
+//        waveView.setLayoutParams(params);
+//        ((FrameLayout) (getWindow().getDecorView())).addView(waveView);
+        LoadingView loadingView=new LoadingView(this);
+        ((FrameLayout) (getWindow().getDecorView())).addView(loadingView);
 
     }
 

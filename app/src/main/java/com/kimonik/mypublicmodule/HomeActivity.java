@@ -10,10 +10,13 @@ import com.kimonik.mypublicmodule.activity.CommonAdapterTestActivity;
 import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
+import com.kimonik.mypublicmodule.ui.ContortView;
 import com.kimonik.mypublicmodule.ui.LoadingView;
 import com.kimonik.mypublicmodule.ui.PaoPaoView;
 import com.kimonik.mypublicmodule.ui.WaveView;
+import com.kimonik.utilsmodule.androidutil.util.RomUtils;
 import com.kimonik.utilsmodule.base.BaseActivity;
+import com.kimonik.utilsmodule.utils.LUtils;
 import com.lzy.okgo.model.Response;
 
 import butterknife.BindView;
@@ -96,8 +99,12 @@ public class HomeActivity extends BaseActivity {
 ////                ViewGroup.LayoutParams.MATCH_PARENT);
 //        waveView.setLayoutParams(params);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(waveView);
-        LoadingView loadingView=new LoadingView(this);
-        ((FrameLayout) (getWindow().getDecorView())).addView(loadingView);
+        ContortView contortView=new ContortView(this);
+        contortView.setLayoutParams(params);
+//        LoadingView loadingView=new LoadingView(this);
+        ((FrameLayout) (getWindow().getDecorView())).addView(contortView);
+        LUtils.e(HomeActivity.class,"logflag-系统类型--"+ RomUtils.getRom().toString());
+
 
     }
 

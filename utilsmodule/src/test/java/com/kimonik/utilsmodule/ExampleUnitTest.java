@@ -1,5 +1,10 @@
 package com.kimonik.utilsmodule;
 
+import android.util.Log;
+
+import com.kimonik.utilsmodule.utils.LUtils;
+import com.kimonik.utilsmodule.utils.TimeUtils;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +17,8 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
+        System.out.print(TimeUtils.getCurentTimeTotal());
         assertEquals(4, 2 + 2);
+
     }
 }

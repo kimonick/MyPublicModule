@@ -17,12 +17,14 @@
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textAllCaps="false"
             android:text="@string/opengltest" />
 
         <Button
             android:id="@+id/bt_home_002"
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
+            android:textAllCaps="false"
             android:layout_height="50dp"
             android:text="@string/okgotest" />
 
@@ -31,6 +33,7 @@
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textAllCaps="false"
             android:text="@string/commonadapterttest" />
 
         <Button
@@ -38,7 +41,15 @@
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textAllCaps="false"
             android:text="@string/videoviewtest" />
+        <Button
+            android:id="@+id/bt_home_005"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textAllCaps="false"
+            android:text="@string/soundTest" />
     </LinearLayout>
 
 

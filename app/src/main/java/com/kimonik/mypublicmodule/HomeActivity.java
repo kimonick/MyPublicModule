@@ -10,13 +10,12 @@ import com.kimonik.mypublicmodule.activity.CommonAdapterTestActivity;
 import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
-import com.kimonik.mypublicmodule.ui.ContortView;
 import com.kimonik.mypublicmodule.ui.LoadingView;
-import com.kimonik.mypublicmodule.ui.PaoPaoView;
-import com.kimonik.mypublicmodule.ui.WaveView;
+import com.kimonik.mypublicmodule.ui.PathTestView;
 import com.kimonik.utilsmodule.androidutil.util.RomUtils;
 import com.kimonik.utilsmodule.base.BaseActivity;
 import com.kimonik.utilsmodule.utils.LUtils;
+import com.kimonik.utilsmodule.utils.SoundUtils;
 import com.lzy.okgo.model.Response;
 
 import butterknife.BindView;
@@ -36,6 +35,8 @@ public class HomeActivity extends BaseActivity {
     Button btHome003;
     @BindView(R.id.bt_home_004)
     Button btHome004;
+    @BindView(R.id.bt_home_005)
+    Button btHome005;
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -79,6 +80,9 @@ public class HomeActivity extends BaseActivity {
             case R.id.bt_home_004:
                 openActivity(VideoViewTestActivity.class);
                 break;
+            case R.id.bt_home_005:
+                SoundUtils.playSound(this, R.raw.after_upload_voice);
+                break;
 //                 case R.id.bt_home_005:break;
 //                 case R.id.bt_home_006:break;
         }
@@ -87,23 +91,29 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void initView() {
+
 //        Log.e("TAG", "class切点插入:onCreate开始" );
 //        PaoPaoView paoPaoView=new PaoPaoView(this);
-        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams
+                .MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 //        paoPaoView.setLayoutParams(params);
 //        ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
 ////        Log.e("TAG", "class切点插入:onCreate结束" );
 //        WaveView waveView=new WaveView(this);
-////        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+////        FrameLayout.LayoutParams params=new FrameLayout.LayoutParams(ViewGroup.LayoutParams
+/// .MATCH_PARENT,
 ////                ViewGroup.LayoutParams.MATCH_PARENT);
 //        waveView.setLayoutParams(params);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(waveView);
-        ContortView contortView=new ContortView(this);
-        contortView.setLayoutParams(params);
-//        LoadingView loadingView=new LoadingView(this);
-        ((FrameLayout) (getWindow().getDecorView())).addView(contortView);
-        LUtils.e(HomeActivity.class,"logflag-系统类型--"+ RomUtils.getRom().toString());
+//        ContortView contortView=new ContortView(this);
+//        contortView.setLayoutParams(params);
+//        LoadingView loadingView = new LoadingView(this);
+//        ((FrameLayout) (getWindow().getDecorView())).addView(loadingView);
+        PathTestView pathTestView=new PathTestView(this);
+        ((FrameLayout) (getWindow().getDecorView())).addView(pathTestView);
+//        ((FrameLayout) (getWindow().getDecorView())).addView(contortView);
+        LUtils.e(HomeActivity.class, "logflag-系统类型--" + RomUtils.getRom().toString());
 
 
     }
@@ -114,6 +124,8 @@ public class HomeActivity extends BaseActivity {
         btHome002.setOnClickListener(this);
         btHome003.setOnClickListener(this);
         btHome004.setOnClickListener(this);
+        btHome005.setOnClickListener(this);
+//        btHome006.setOnClickListener(this);
     }
 
     @Override

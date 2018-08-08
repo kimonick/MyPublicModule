@@ -6,8 +6,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -16,13 +19,13 @@ import android.view.View;
 import com.kimonik.mypublicmodule.R;
 import com.kimonik.utilsmodule.utils.LUtils;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -46,8 +49,8 @@ public class ContortView extends View {
     private Executor executor;
     private float[] newPos, origPos;
     private Paint paint;
-    private int widthPart=3,heightPart=3;
-    private int count=0;
+    private int widthPart = 3, heightPart = 3;
+    private int count = 0;
 
     public ContortView(Context context) {
         this(context, null, 0);
@@ -74,11 +77,13 @@ public class ContortView extends View {
         paint.setColor(Color.GREEN);
         paint.setStyle(Paint.Style.FILL);
         paint.setAntiAlias(true);
+        LUtils.e(ContortView.class,"logflag-可用的cpu数目--"+Runtime.getRuntime().availableProcessors());
+
 
         executor = Executors.newSingleThreadExecutor();
         bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.xiaoche);
-        newPos = new float[(widthPart+1)*(heightPart+1)*2];
-        origPos = new float[(widthPart+1)*(heightPart+1)*2];
+        newPos = new float[(widthPart + 1) * (heightPart + 1) * 2];
+        origPos = new float[(widthPart + 1) * (heightPart + 1) * 2];
         getBitmapMeshPoints(bitmap, heightPart, widthPart, newPos, origPos);
         initThread();
     }
@@ -87,7 +92,7 @@ public class ContortView extends View {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                while (true){
+                while (true) {
                     try {
                         Thread.sleep(300);
                     } catch (InterruptedException e) {
@@ -111,12 +116,12 @@ public class ContortView extends View {
         canvas.scale(0.2f, 0.2f);
         canvas.translate(300, 500);
         //按照给出的数组坐标点将bitmap绘制到点所组成的范围内
-        if (count%2==0){
+        if (count % 2 == 0) {
             canvas.drawBitmapMesh(bitmap, widthPart, heightPart, origPos, 0, null, 0, null);
             for (int i = 0; i < origPos.length / 2; i++) {
                 canvas.drawCircle(origPos[i * 2], origPos[i * 2 + 1], 50, paint);
             }
-        }else {
+        } else {
             canvas.drawBitmapMesh(bitmap, widthPart, heightPart, newPos, 0, null, 0, null);
             for (int i = 0; i < newPos.length / 2; i++) {
                 canvas.drawCircle(newPos[i * 2], newPos[i * 2 + 1], 50, paint);
@@ -164,31 +169,31 @@ public class ContortView extends View {
                 index += 1;
             }
         }
-        handleData(origPos,widthPart+1);//307.2
+        handleData(origPos, widthPart + 1);//307.2
     }
 
-    /**将长方形矩阵转化为梯形矩阵
-     *  step=2
+    /**
+     * 将长方形矩阵转化为梯形矩阵
+     * step=2
      * 0   1   2    3
      * 4   5   6    7
      * 8   9   10  11
-     *
-     * */
-    private void handleData(float[] data,int step){
-        if (data==null||data.length<step*2) return;
+     */
+    private void handleData(float[] data, int step) {
+        if (data == null || data.length < step * 2) return;
         //横向宽度
-        float  width=data[step*2-2]-data[0];
-        float  middle=data[0]+width/2;
-        int  s=1;
-        for (int i = 0; i < data.length/2; i++) {
-            data[i*2]=(middle-(middle-data[i*2])*(0.6f+s*0.1f)) ;
-            if ((i+1)%step==0){
+        float width = data[step * 2 - 2] - data[0];
+        float middle = data[0] + width / 2;
+        int s = 0;
+        for (int i = 0; i < data.length / 2; i++) {
+            data[i * 2] = (middle - (middle - data[i * 2]) * (1 - s * 0.05f));
+            if ((i + 1) % step == 0) {
                 s++;
             }
         }
-        StringBuilder builder=new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < data.length; i++) {
-            if (i%2==0){
+            if (i % 2 == 0) {
                 builder.append(data[i]).append(",");
             }
         }

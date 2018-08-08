@@ -15,4 +15,5 @@
     <string name="qingshuruurl">请输入请求的url地址</string>
     <string name="qingzhengqueshurucanshu">请正确输入参数:格式:参数名,参数值,参数名,参数值!</string>
     <string name="qingqiujieshu">请求结束!</string>
+    <string name="soundTest">soundTest</string>
 </resources>

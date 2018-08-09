@@ -13,6 +13,7 @@ import android.graphics.PointF;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.LruCache;
 import android.view.View;
 
 import com.kimonik.utilsmodule.utils.LUtils;
@@ -172,7 +173,6 @@ public class PathTestView extends View {
             @Override
             public void run() {
                 while (isRun) {
-
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {

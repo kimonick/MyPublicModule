@@ -172,6 +172,7 @@ public class PathTestView extends View {
             @Override
             public void run() {
                 while (isRun) {
+
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {

@@ -178,7 +178,7 @@ public class PaoPaoView extends View {
                        }
 
                    }
-                   for (int i = 0; i < list.size(); i++) {
+                   for (int i = 0;  i < list.size(); i++) {
                        list.get(i).x+=listOffset.get(i).x;
                        list.get(i).y-=listOffset.get(i).y;
                    }

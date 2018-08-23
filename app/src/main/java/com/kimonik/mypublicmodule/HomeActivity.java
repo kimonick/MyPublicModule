@@ -1,6 +1,9 @@
 package com.kimonik.mypublicmodule;
 
+import android.arch.lifecycle.MethodCallsLogger;
+import android.graphics.Matrix;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -11,7 +14,10 @@ import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
 import com.kimonik.mypublicmodule.ui.LoadingView;
+import com.kimonik.mypublicmodule.ui.LotteryView;
 import com.kimonik.mypublicmodule.ui.PathTestView;
+import com.kimonik.mypublicmodule.ui.lottery.FlickerView;
+import com.kimonik.mypublicmodule.ui.lottery.LotteryGroupView;
 import com.kimonik.utilsmodule.androidutil.util.RomUtils;
 import com.kimonik.utilsmodule.base.BaseActivity;
 import com.kimonik.utilsmodule.utils.LUtils;
@@ -60,7 +66,6 @@ public class HomeActivity extends BaseActivity {
         Log.e("TAG", "method2: " + s);
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -97,6 +102,7 @@ public class HomeActivity extends BaseActivity {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams
                 .MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
+        params.gravity= Gravity.CENTER;
 //        paoPaoView.setLayoutParams(params);
 //        ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
 ////        Log.e("TAG", "class切点插入:onCreate结束" );
@@ -110,12 +116,40 @@ public class HomeActivity extends BaseActivity {
 //        contortView.setLayoutParams(params);
 //        LoadingView loadingView = new LoadingView(this);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(loadingView);
-        PathTestView pathTestView=new PathTestView(this);
-        ((FrameLayout) (getWindow().getDecorView())).addView(pathTestView);
+//        PathTestView pathTestView = new PathTestView(this);
+//        ((FrameLayout) (getWindow().getDecorView())).addView(pathTestView);
+//        FlickerView lotteryView=new FlickerView(this);
+        LotteryGroupView lotteryView=new LotteryGroupView(this);
+        lotteryView.setLayoutParams(params);
+        ((FrameLayout) (getWindow().getDecorView())).addView(lotteryView);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(contortView);
         LUtils.e(HomeActivity.class, "logflag-系统类型--" + RomUtils.getRom().toString());
+//        Matrix matrix = new Matrix();
+//        float[] f = new float[9];
+//        matrix.getValues(f);
+//        for (int i = 0; i < 9; i++) {
+//            LUtils.e(HomeActivity.class, "logflag-matrix矩阵--" + f[i]);
+//
+//        }
+        String s = getS();
+        String s1 = s.replace("\n", "").replace(" ", "");
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < s1.length(); i++) {
+            builder.append(s1.charAt(i));
+            if (i % 48 == 0) {
+                Log.d("tag12356", builder.toString());
+                builder = new StringBuilder();
+            } else if (i == s1.length() - 1) {
+                Log.d("tag12356", builder.toString());
+
+            }
+        }
 
 
+    }
+
+    private String getS(){
+        return "";
     }
 
     @Override
@@ -160,6 +194,5 @@ public class HomeActivity extends BaseActivity {
      【Android核心,影音,商城项目】http://url.cn/4ENsQjH
      【Node,mongoDB,Angular,React】http://url.cn/5ndEJKm
      自学一样拿1万+月薪，技术群：715446567
-
      */
 }

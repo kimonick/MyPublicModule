@@ -1,6 +1,7 @@
 package com.kimonik.mypublicmodule.ui;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.view.View;
 
 import com.kimonik.utilsmodule.utils.LUtils;
 
+import java.io.Closeable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -76,7 +78,7 @@ public class PathTestView extends View {
         init();
     }
 
-    private void init() {
+    private void init() {//528125888
         matrixValues = new float[9];
         matrix = new Matrix();
         isRun = true;
@@ -122,7 +124,9 @@ public class PathTestView extends View {
 //            PointF point = new PointF(pos[0], pos[1]);
 //            list.add(point);
 //        }
-//1.0,0.0,0.0,
+//1.0,0.0,0.0,单一职责,里氏替换,迪米特,接口隔离,依赖倒置,开闭原则
+        //单例模式,简单工厂模式,抽象工厂模式,适配器模式,观察者模式,代理模式,门面模式
+        //装饰器模式,建造者模式,享元模式,备忘录模式
 // 0.0,1.0,0.0,
 // 0.0,0.0,1.0,
 //        Matrix matrix=new Matrix();
@@ -200,7 +204,6 @@ public class PathTestView extends View {
                     trianglePath.lineTo(pos[0] + 20, pos[1]+40);
                     trianglePath.close();
                     postInvalidate();
-
                 }
             }
         });

@@ -10,8 +10,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.kimonik.mypublicmodule.activity.CommonAdapterTestActivity;
+import com.kimonik.mypublicmodule.activity.CustomViewpagerTestActivity;
+import com.kimonik.mypublicmodule.activity.LotteryViewTestActivity;
 import com.kimonik.mypublicmodule.activity.OkGoTestActivity;
 import com.kimonik.mypublicmodule.activity.OpenGLESTestActivity;
+import com.kimonik.mypublicmodule.activity.ScrollViewTestActivity;
 import com.kimonik.mypublicmodule.activity.VideoViewTestActivity;
 import com.kimonik.mypublicmodule.ui.LoadingView;
 import com.kimonik.mypublicmodule.ui.LotteryView;
@@ -43,6 +46,14 @@ public class HomeActivity extends BaseActivity {
     Button btHome004;
     @BindView(R.id.bt_home_005)
     Button btHome005;
+    @BindView(R.id.bt_home_006)
+    Button btHome006;
+    @BindView(R.id.bt_home_007)
+    Button btHome007;
+    @BindView(R.id.bt_home_008)
+    Button btHome008;
+    @BindView(R.id.bt_home_009)
+    Button btHome009;
 
     /**
      * A native method that is implemented by the 'native-lib' native library,
@@ -88,8 +99,17 @@ public class HomeActivity extends BaseActivity {
             case R.id.bt_home_005:
                 SoundUtils.playSound(this, R.raw.after_upload_voice);
                 break;
-//                 case R.id.bt_home_005:break;
-//                 case R.id.bt_home_006:break;
+            case R.id.bt_home_006:
+                openActivity(LotteryViewTestActivity.class);
+                break;
+            case R.id.bt_home_007:
+                openActivity(ScrollViewTestActivity.class);
+                break;
+            case R.id.bt_home_008:
+                openActivity(CustomViewpagerTestActivity.class);
+                break;
+            case R.id.bt_home_009:
+                break;
         }
     }
 
@@ -102,7 +122,7 @@ public class HomeActivity extends BaseActivity {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams
                 .MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-        params.gravity= Gravity.CENTER;
+        params.gravity = Gravity.CENTER;
 //        paoPaoView.setLayoutParams(params);
 //        ((FrameLayout)(getWindow().getDecorView())).addView(paoPaoView);
 ////        Log.e("TAG", "class切点插入:onCreate结束" );
@@ -119,9 +139,9 @@ public class HomeActivity extends BaseActivity {
 //        PathTestView pathTestView = new PathTestView(this);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(pathTestView);
 //        FlickerView lotteryView=new FlickerView(this);
-        LotteryGroupView lotteryView=new LotteryGroupView(this);
-        lotteryView.setLayoutParams(params);
-        ((FrameLayout) (getWindow().getDecorView())).addView(lotteryView);
+//        LotteryGroupView lotteryView=new LotteryGroupView(this);
+//        lotteryView.setLayoutParams(params);
+//        ((FrameLayout) (getWindow().getDecorView())).addView(lotteryView);
 //        ((FrameLayout) (getWindow().getDecorView())).addView(contortView);
         LUtils.e(HomeActivity.class, "logflag-系统类型--" + RomUtils.getRom().toString());
 //        Matrix matrix = new Matrix();
@@ -148,7 +168,7 @@ public class HomeActivity extends BaseActivity {
 
     }
 
-    private String getS(){
+    private String getS() {
         return "";
     }
 
@@ -159,7 +179,11 @@ public class HomeActivity extends BaseActivity {
         btHome003.setOnClickListener(this);
         btHome004.setOnClickListener(this);
         btHome005.setOnClickListener(this);
-//        btHome006.setOnClickListener(this);
+        btHome006.setOnClickListener(this);
+        btHome007.setOnClickListener(this);
+        btHome008.setOnClickListener(this);
+        btHome009.setOnClickListener(this);
+//        btHome010.setOnClickListener(this);
     }
 
     @Override

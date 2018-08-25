@@ -53,6 +53,9 @@
         <activity android:name=".activity.OpenGLESTestActivity" />
         <activity android:name=".activity.CommonAdapterTestActivity" />
         <activity android:name=".activity.VideoViewTestActivity" />
+        <activity android:name=".activity.LotteryViewTestActivity" />
+        <activity android:name=".activity.ScrollViewTestActivity" />
+        <activity android:name=".activity.CustomViewpagerTestActivity" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@
     <string name="get">GET请求</string>
     <string name="post">POST请求</string>
     <string name="file">File请求</string>
+    <string name="choujiangview">抽奖view</string>
     <string name="bitmap">bitmap请求</string>
     <string name="qingqiucanshu">请求参数</string>
     <string name="canshutishi">参数以逗号分隔,成对出现,参数名,参数值,参数名,参数值</string>
@@ -16,4 +17,9 @@
     <string name="qingzhengqueshurucanshu">请正确输入参数:格式:参数名,参数值,参数名,参数值!</string>
     <string name="qingqiujieshu">请求结束!</string>
     <string name="soundTest">soundTest</string>
+    <string name="lotteryviewtest">LotteryViewTest</string>
+    <string name="zidingyiscrollview">自定义scrollview</string>
+    <string name="scrollviewtest">customscrollviewTest</string>
+    <string name="zidingyiviewpager">测试自定义viewpager</string>
+    <string name="customviewpager">CustomViewpagerTest</string>
 </resources>

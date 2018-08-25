@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.kimonik.utilsmodule.ui.MTopBarView
+        android:id="@+id/mtb_act_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorQianLan"
+        app:centerText="@string/zidingyiscrollview"
+        app:leftImage="@drawable/xvector_back" />
+    <com.kimonik.mypublicmodule.ui.CustomScrollView
+        android:id="@+id/csv_act_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#a3a3"
+            android:text="001"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="002"/>
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="003"/>
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:text="004"/>
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:text="005"/>
+         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1300dp"
+            android:text="006"/>
+
+    </com.kimonik.mypublicmodule.ui.CustomScrollView>
+
+</LinearLayout>

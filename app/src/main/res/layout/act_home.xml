@@ -17,39 +17,71 @@
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="@string/opengltest" />
+            android:text="@string/opengltest"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/bt_home_002"
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
-            android:textAllCaps="false"
             android:layout_height="50dp"
-            android:text="@string/okgotest" />
+            android:text="@string/okgotest"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/bt_home_003"
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="@string/commonadapterttest" />
+            android:text="@string/commonadapterttest"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/bt_home_004"
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="@string/videoviewtest" />
+            android:text="@string/videoviewtest"
+            android:textAllCaps="false" />
+
         <Button
             android:id="@+id/bt_home_005"
             style="@style/HomeButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:textAllCaps="false"
-            android:text="@string/soundTest" />
+            android:text="@string/soundTest"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt_home_006"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/lotteryviewtest"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt_home_007"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/scrollviewtest"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/bt_home_008"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/customviewpager"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/bt_home_009"
+            style="@style/HomeButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="@string/lotteryviewtest"
+            android:textAllCaps="false" />
+
     </LinearLayout>
 
 

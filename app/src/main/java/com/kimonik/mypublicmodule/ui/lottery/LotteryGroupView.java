@@ -14,6 +14,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.kimonik.mypublicmodule.R;
@@ -104,6 +105,9 @@ public class LotteryGroupView extends FrameLayout {
         prizeView = new PrizeView(getContext());
         flickerView.setExecutor(executor);
         prizeView.setExecutor(executor);
+        FrameLayout.LayoutParams params=new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        prizeView.setLayoutParams(params);
+        flickerView.setLayoutParams(params);
         addView(flickerView);
         addView(prizeView);
     }
@@ -132,12 +136,14 @@ public class LotteryGroupView extends FrameLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        measureChildren(widthMeasureSpec,heightMeasureSpec);
+        super.onMeasure(widthMeasureSpec,heightMeasureSpec);
         setMeasuredDimension(width, width);
-        final int count = getChildCount();
-        for (int i = 0; i < count; i++) {
-            //这个很重要，没有就不显示子view
-            getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
-        }
+//        final int count = getChildCount();
+//        for (int i = 0; i < count; i++) {
+//            //这个很重要，没有就不显示子view,此种测量方式为充满父视图
+//            getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
+//        }
     }
 
     public static Paint initPaint(String color, Paint.Style style, int width) {

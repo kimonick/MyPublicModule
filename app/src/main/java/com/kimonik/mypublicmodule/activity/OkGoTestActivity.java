@@ -13,6 +13,8 @@ import com.kimonik.utilsmodule.utils.LUtils;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.TreeMap;
 
 import butterknife.BindView;
@@ -220,11 +222,19 @@ public class OkGoTestActivity extends BaseActivity {
         });
     }
 
+    private Set<String> set;
+    private void initSet(){
+        set=new HashSet<>();
+        for (int i = 0; i < 10; i++) {
+            set.add(""+i);
+        }
+    }
     private void get() {
         HttpUtils.getInstance(this.getApplicationContext()).GET(url,map,
                 new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {
+
                         tvtestContent.setText(response.body());
 
                     }

@@ -152,13 +152,15 @@ public class PrizeView extends View {
         canvas.drawText(thank, 0.525f * width - paintText.measureText(lucky) / 2, 0.33f * width,
                 paintText);
         canvas.drawBitmap(bitmapXie, null, rectFRed, null);
+
         for (int i = 0; i < 5; i++) {
-            canvas.save();
+            int s=canvas.save();
             canvas.rotate(60f, centerX, centerY);
             canvas.drawText(listString.get(i), 0.525f * width - paintText.measureText(listString
                     .get(i)) / 2, 0.33f * width, paintText);
             canvas.drawBitmap(list.get(i), null, rectFRed, null);
         }
+//        canvas.restoreToCount(1);
         canvas.restore();
         canvas.restore();
         canvas.restore();
